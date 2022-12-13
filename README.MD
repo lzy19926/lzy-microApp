@@ -1,5 +1,5 @@
 ## 使用方法  基座
-``
+```
 import {runTest} from './index'
 
 // 启动microApp
@@ -16,12 +16,12 @@ function App() {
 }
 
 render(<App />, document.getElementById('root'))
-``
+```
 ## 子应用(React)
-``
+```
 function App() {
     return <div>微前端 运行于port:3000</div>
 }
 
 render(<App />, document.getElementById('root'))
-``
+```
