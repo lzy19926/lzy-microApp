@@ -1,9 +1,8 @@
 // lifecycle常量
 export enum lifeCycles {
-
+    CREATED = 'created',
     BEFOREMOUNT = 'beforemount',
     MOUNTED = 'mounted',
-    CREATED = 'created',
     UNMOUNT = 'unmount',
     ERROR = 'error',
 }

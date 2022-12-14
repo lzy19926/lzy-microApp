@@ -4,9 +4,9 @@ exports.appStates = exports.lifeCycles = void 0;
 // lifecycle常量
 var lifeCycles;
 (function (lifeCycles) {
+    lifeCycles["CREATED"] = "created";
     lifeCycles["BEFOREMOUNT"] = "beforemount";
     lifeCycles["MOUNTED"] = "mounted";
-    lifeCycles["CREATED"] = "created";
     lifeCycles["UNMOUNT"] = "unmount";
     lifeCycles["ERROR"] = "error";
 })(lifeCycles = exports.lifeCycles || (exports.lifeCycles = {}));

@@ -193,6 +193,7 @@ export default class CreateApp implements AppInterface {
         // 加载css
         this.callStyles()
 
+        dispatchLifecyclesEvent(this.container!, lifeCycles.MOUNTED)
     }
     public unmount(unmountParam: any): void {
         throw new Error('Method not implemented.')
@@ -211,11 +212,11 @@ export default class CreateApp implements AppInterface {
 
             // 此时内部的window和document都进行了修改
             // 内部的document根据container修改了指向
-            //todo bootstarp不支持这款proxyWindow 暂不使用沙箱
-            ((window, document) => {
+            //todo bootstarp不支持这款proxyWindow 暂不使用沙箱(已解决)
+            ((proxyWindow, document) => {
                 this.sandBox.active()
                 eval(code)
-            })(window, proxyDocument)// 将window换为proxyWindow
+            })(proxyWindow, proxyDocument)// 将window换为proxyWindow
         })
     }
 

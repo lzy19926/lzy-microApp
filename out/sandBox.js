@@ -16,9 +16,17 @@ class ProxySandbox {
             },
             get: (target, prop) => {
                 // 如果fakeWindow里面有，就从fakeWindow里面取，否则，就从外部的window里面取
-                let value = prop in target ? target[prop] : rawWindow[prop];
+                //! 注意  如果调用了window.addEventLister之类的window函数, 需要将value的this转换为真实window,
+                //! 否则空对象target.addEventLister无法进行调用
+                //! Proxy一般需要配合Reflect进行调用  这里使用Reflect.get获取target/rawWindow中的属性
+                var hasProp = prop in target;
+                let value = hasProp ? Reflect.get(target, prop) : Reflect.get(rawWindow, prop);
+                // 如果value是一个函数,改变this指向为真实window
+                if (typeof (value) == 'function') {
+                    value = hasProp ? value.bind(target) : value.bind(rawWindow);
+                }
                 return value;
-            }
+            },
         });
         this.sandboxRunning = false;
         this.proxyWindow = proxyWindow;

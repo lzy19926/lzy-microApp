@@ -8,22 +8,19 @@ class Logger {
 
     log(...args: any[]) {
         if (this.showLoggerInfo) {
-            console.log('--------------lzyMicroAppLogger--------------');
-            console.log(...args);
+            console.log('-----lzyMicroApp:', ...args);
         }
     }
 
     warn(...args: any[]) {
         if (this.showLoggerInfo) {
-            console.log('--------------lzyMicroAppLogger--------------');
-            console.warn(...args);
+            console.warn('-----lzyMicroApp:', ...args);
         }
     }
 
     error(...args: any[]) {
         if (this.showLoggerInfo) {
-            console.log('--------------lzyMicroAppLogger--------------');
-            console.error(...args);
+            console.error('-----lzyMicroApp:', ...args);
         }
     }
 }

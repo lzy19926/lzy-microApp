@@ -160,6 +160,7 @@ class CreateApp {
         this.callScripts();
         // 加载css
         this.callStyles();
+        (0, microApp_element_1.dispatchLifecyclesEvent)(this.container, constance_1.lifeCycles.MOUNTED);
     }
     unmount(unmountParam) {
         throw new Error('Method not implemented.');
@@ -176,11 +177,11 @@ class CreateApp {
             const code = source_center_1.default.scripts.get(jsUrl);
             // 此时内部的window和document都进行了修改
             // 内部的document根据container修改了指向
-            //todo bootstarp不支持这款proxyWindow 暂不使用沙箱
-            ((window, document) => {
+            //todo bootstarp不支持这款proxyWindow 暂不使用沙箱(已解决)
+            ((proxyWindow, document) => {
                 this.sandBox.active();
                 eval(code);
-            })(window, proxyDocument); // 将window换为proxyWindow
+            })(proxyWindow, proxyDocument); // 将window换为proxyWindow
         });
     }
     // 加载css

@@ -7,20 +7,17 @@ class Logger {
     }
     log(...args) {
         if (this.showLoggerInfo) {
-            console.log('--------------lzyMicroAppLogger--------------');
-            console.log(...args);
+            console.log('-----lzyMicroApp:', ...args);
         }
     }
     warn(...args) {
         if (this.showLoggerInfo) {
-            console.log('--------------lzyMicroAppLogger--------------');
-            console.warn(...args);
+            console.warn('-----lzyMicroApp:', ...args);
         }
     }
     error(...args) {
         if (this.showLoggerInfo) {
-            console.log('--------------lzyMicroAppLogger--------------');
-            console.error(...args);
+            console.error('-----lzyMicroApp:', ...args);
         }
     }
 }
