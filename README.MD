@@ -1,9 +1,9 @@
 ## 使用方法  基座
 ```
-import {runTest} from './index'
+import {start} from 'lzy-microapp'
 
 // 启动microApp
-runTest()
+start()
 
 // 启动基座项目
 function App() {
